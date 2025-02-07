@@ -7,4 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="Resources\Attacks.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+	  <None Update="Resources\Fighters.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+  </ItemGroup>
+
 </Project>

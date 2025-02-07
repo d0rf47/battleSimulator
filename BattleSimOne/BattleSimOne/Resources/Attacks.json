@@ -1,0 +1,206 @@
+[
+	{
+		"Id": 1,
+		"ElementType": 1,
+		"Name": "Fire Blast",
+		"AttackPoints": 90
+	},
+	{
+		"Id": 2,
+		"ElementType": 1,
+		"Name": "Flame Surge",
+		"AttackPoints": 75
+	},
+	{
+		"Id": 3,
+		"ElementType": 2,
+		"Name": "Vine Whip",
+		"AttackPoints": 30
+	},
+	{
+		"Id": 4,
+		"ElementType": 2,
+		"Name": "Leaf Storm",
+		"AttackPoints": 85
+	},
+	{
+		"Id": 5,
+		"ElementType": 2,
+		"Name": "Nature’s Wrath",
+		"AttackPoints": 65
+	},
+	{
+		"Id": 6,
+		"ElementType": 3,
+		"Name": "Earthquake",
+		"AttackPoints": 100
+	},
+	{
+		"Id": 7,
+		"ElementType": 3,
+		"Name": "Mud Shot",
+		"AttackPoints": 45
+	},
+	{
+		"Id": 8,
+		"ElementType": 4,
+		"Name": "Thunderbolt",
+		"AttackPoints": 95
+	},
+	{
+		"Id": 9,
+		"ElementType": 4,
+		"Name": "Spark Shock",
+		"AttackPoints": 50
+	},
+	{
+		"Id": 10,
+		"ElementType": 5,
+		"Name": "Hydro Cannon",
+		"AttackPoints": 100
+	},
+	{
+		"Id": 11,
+		"ElementType": 5,
+		"Name": "Aqua Splash",
+		"AttackPoints": 35
+	},
+	{
+		"Id": 12,
+		"ElementType": 6,
+		"Name": "Blizzard",
+		"AttackPoints": 90
+	},
+	{
+		"Id": 13,
+		"ElementType": 6,
+		"Name": "Frost Shards",
+		"AttackPoints": 45
+	},
+	{
+		"Id": 14,
+		"ElementType": 7,
+		"Name": "Dragon Breath",
+		"AttackPoints": 70
+	},
+	{
+		"Id": 15,
+		"ElementType": 7,
+		"Name": "Draco Meteor",
+		"AttackPoints": 100
+	},
+	{
+		"Id": 16,
+		"ElementType": 8,
+		"Name": "Shadow Strike",
+		"AttackPoints": 80
+	},
+	{
+		"Id": 17,
+		"ElementType": 8,
+		"Name": "Night Slash",
+		"AttackPoints": 60
+	},
+	{
+		"Id": 18,
+		"ElementType": 9,
+		"Name": "Power Punch",
+		"AttackPoints": 55
+	},
+	{
+		"Id": 19,
+		"ElementType": 9,
+		"Name": "Neutral Burst",
+		"AttackPoints": 75
+	},
+	{
+		"Id": 20,
+		"ElementType": 9,
+		"Name": "Balanced Strike",
+		"AttackPoints": 40
+	},
+	{
+		"Id": 21,
+		"ElementType": 5,
+		"Name": "TIdal Wave",
+		"AttackPoints": 85
+	},
+	{
+		"Id": 22,
+		"ElementType": 5,
+		"Name": "Aqua Slash",
+		"AttackPoints": 50
+	},
+	{
+		"Id": 23,
+		"ElementType": 1,
+		"Name": "Fireball",
+		"AttackPoints": 80
+	},
+	{
+		"Id": 24,
+		"ElementType": 1,
+		"Name": "Lava Burst",
+		"AttackPoints": 70
+	},
+	{
+		"Id": 25,
+		"ElementType": 2,
+		"Name": "Thorn Vines",
+		"AttackPoints": 55
+	},
+	{
+		"Id": 26,
+		"ElementType": 2,
+		"Name": "Bramble Smash",
+		"AttackPoints": 60
+	},
+	{
+		"Id": 27,
+		"ElementType": 3,
+		"Name": "Rock SlIde",
+		"AttackPoints": 75
+	},
+	{
+		"Id": 28,
+		"ElementType": 3,
+		"Name": "Earth Shatter",
+		"AttackPoints": 90
+	},
+	{
+		"Id": 29,
+		"ElementType": 4,
+		"Name": "Lightning Strike",
+		"AttackPoints": 65
+	},
+	{
+		"Id": 30,
+		"ElementType": 4,
+		"Name": "Electro Pulse",
+		"AttackPoints": 55
+	},
+	{
+		"Id": 31,
+		"ElementType": 6,
+		"Name": "Frostbite",
+		"AttackPoints": 65
+	},
+	{
+		"Id": 32,
+		"ElementType": 6,
+		"Name": "Hailstorm",
+		"AttackPoints": 80
+	},
+	{
+		"Id": 33,
+		"ElementType": 7,
+		"Name": "Celestial Roar",
+		"AttackPoints": 90
+	},
+	{
+		"Id": 34,
+		"ElementType": 7,
+		"Name": "Meteor Dive",
+		"AttackPoints": 85
+	}
+]

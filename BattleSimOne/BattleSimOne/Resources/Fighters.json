@@ -1,0 +1,146 @@
+[
+	{
+		"Id": 1,
+		"ElementType": 1,
+		"Name": "Blazing Fury",
+		"AttackPoints": 85,
+		"DefensePoints": 60,
+		"HealthPoints": 250,
+		"AttackIds": [ 1, 2 ]
+	},
+	{
+		"Id": 2,
+		"ElementType": 2,
+		"Name": "Verdant Guardian",
+		"AttackPoints": 70,
+		"DefensePoints": 80,
+		"HealthPoints": 220,
+		"AttackIds": [ 3, 4, 5 ]
+	},
+	{
+		"Id": 3,
+		"ElementType": 3,
+		"Name": "Terra Titan",
+		"AttackPoints": 95,
+		"DefensePoints": 100,
+		"HealthPoints": 280,
+		"AttackIds": [ 6, 7 ]
+	},
+	{
+		"Id": 4,
+		"ElementType": 4,
+		"Name": "Volt Striker",
+		"AttackPoints": 80,
+		"DefensePoints": 55,
+		"HealthPoints": 200,
+		"AttackIds": [ 8, 9 ]
+	},
+	{
+		"Id": 5,
+		"ElementType": 5,
+		"Name": "Aqua Sentinel",
+		"AttackPoints": 75,
+		"DefensePoints": 85,
+		"HealthPoints": 230,
+		"AttackIds": [ 10, 11 ]
+	},
+	{
+		"Id": 6,
+		"ElementType": 6,
+		"Name": "Frost Monarch",
+		"AttackPoints": 90,
+		"DefensePoints": 70,
+		"HealthPoints": 210,
+		"AttackIds": [ 12, 13 ]
+	},
+	{
+		"Id": 7,
+		"ElementType": 7,
+		"Name": "Draco Warlord",
+		"AttackPoints": 100,
+		"DefensePoints": 75,
+		"HealthPoints": 260,
+		"AttackIds": [ 14, 15 ]
+	},
+	{
+		"Id": 8,
+		"ElementType": 8,
+		"Name": "Shadow Reaper",
+		"AttackPoints": 85,
+		"DefensePoints": 65,
+		"HealthPoints": 240,
+		"AttackIds": [ 16, 17 ]
+	},
+	{
+		"Id": 9,
+		"ElementType": 9,
+		"Name": "Neutral Guardian",
+		"AttackPoints": 75,
+		"DefensePoints": 90,
+		"HealthPoints": 220,
+		"AttackIds": [ 18, 19, 20 ]
+	},
+	{
+		"Id": 10,
+		"ElementType": 5,
+		"Name": "Tidal Warlord",
+		"AttackPoints": 85,
+		"DefensePoints": 70,
+		"HealthPoints": 235,
+		"AttackIds": [ 21, 22 ]
+	},
+	{
+		"Id": 11,
+		"ElementType": 1,
+		"Name": "Inferno Knight",
+		"AttackPoints": 95,
+		"DefensePoints": 60,
+		"HealthPoints": 225,
+		"AttackIds": [ 23, 24 ]
+	},
+	{
+		"Id": 12,
+		"ElementType": 2,
+		"Name": "Thorn Bringer",
+		"AttackPoints": 65,
+		"DefensePoints": 75,
+		"HealthPoints": 200,
+		"AttackIds": [ 25, 26 ]
+	},
+	{
+		"Id": 13,
+		"ElementType": 3,
+		"Name": "Rock Titan",
+		"AttackPoints": 80,
+		"DefensePoints": 95,
+		"HealthPoints": 260,
+		"AttackIds": [ 27, 28 ]
+	},
+	{
+		"Id": 14,
+		"ElementType": 4,
+		"Name": "Storm Bringer",
+		"AttackPoints": 70,
+		"DefensePoints": 50,
+		"HealthPoints": 190,
+		"AttackIds": [ 29, 30 ]
+	},
+	{
+		"Id": 15,
+		"ElementType": 6,
+		"Name": "Winter Guardian",
+		"AttackPoints": 80,
+		"DefensePoints": 85,
+		"HealthPoints": 230,
+		"AttackIds": [ 31, 32 ]
+	},
+	{
+		"Id": 16,
+		"ElementType": 7,
+		"Name": "Celestial Dragon",
+		"AttackPoints": 95,
+		"DefensePoints": 70,
+		"HealthPoints": 245,
+		"AttackIds": [ 33, 34 ]
+	}
+]

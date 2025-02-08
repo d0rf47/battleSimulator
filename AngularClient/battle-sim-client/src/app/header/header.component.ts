@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { CommonModule } from '@angular/common';
 import { MenuItem } from 'primeng/api';
@@ -7,7 +7,8 @@ import { MenuItem } from 'primeng/api';
   selector: 'app-header',
   imports: [MenubarModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
   items: MenuItem[] = [];

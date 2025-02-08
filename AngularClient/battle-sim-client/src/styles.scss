@@ -10,6 +10,7 @@
     --gray-900: oklch(19.37% 0.006 300.98);
     --gray-700: oklch(36.98% 0.014 302.71);
     --gray-400: oklch(70.9% 0.015 304.04);
+    
 
     --red-to-pink-to-purple-vertical-gradient: linear-gradient(
       180deg,
@@ -37,7 +38,7 @@
 
   h1 {
     font-size: 3.125rem;
-    color: var(--gray-900);
+    color: var(--french-violet);
     font-weight: 500;
     line-height: 100%;
     letter-spacing: -0.125rem;
@@ -153,6 +154,15 @@
 
   .social-links a:hover svg path {
     fill: var(--gray-900);
+  }
+
+  /* utils */
+  .w-100 {
+    width:100%;
+  }
+
+  .text-center {
+    text-align: center;
   }
 
   @media screen and (max-width: 650px) {

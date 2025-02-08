@@ -1,5 +1,8 @@
 **/.vs/**
 
+**/.vscode/**
+
 **/obj/**
 
 **/bin/**
+/AngularClient/battle-sim-client/.vscode

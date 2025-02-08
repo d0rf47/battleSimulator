@@ -6,7 +6,8 @@
 		"AttackPoints": 85,
 		"DefensePoints": 60,
 		"HealthPoints": 250,
-		"AttackIds": [ 1, 2 ]
+		"Speed": 78,
+		"AttackIds": [ 1, 2, 6, 7 ]
 	},
 	{
 		"Id": 2,
@@ -15,7 +16,8 @@
 		"AttackPoints": 70,
 		"DefensePoints": 80,
 		"HealthPoints": 220,
-		"AttackIds": [ 3, 4, 5 ]
+		"Speed": 65,
+		"AttackIds": [ 3, 4, 5, 25 ]
 	},
 	{
 		"Id": 3,
@@ -24,7 +26,8 @@
 		"AttackPoints": 95,
 		"DefensePoints": 100,
 		"HealthPoints": 280,
-		"AttackIds": [ 6, 7 ]
+		"Speed": 45,
+		"AttackIds": [ 6, 7, 27, 28 ]
 	},
 	{
 		"Id": 4,
@@ -33,7 +36,8 @@
 		"AttackPoints": 80,
 		"DefensePoints": 55,
 		"HealthPoints": 200,
-		"AttackIds": [ 8, 9 ]
+		"Speed": 90,
+		"AttackIds": [ 8, 9, 29, 30 ]
 	},
 	{
 		"Id": 5,
@@ -42,7 +46,8 @@
 		"AttackPoints": 75,
 		"DefensePoints": 85,
 		"HealthPoints": 230,
-		"AttackIds": [ 10, 11 ]
+		"Speed": 72,
+		"AttackIds": [ 10, 11, 21, 22 ]
 	},
 	{
 		"Id": 6,
@@ -51,7 +56,8 @@
 		"AttackPoints": 90,
 		"DefensePoints": 70,
 		"HealthPoints": 210,
-		"AttackIds": [ 12, 13 ]
+		"Speed": 55,
+		"AttackIds": [ 12, 13, 31, 32 ]
 	},
 	{
 		"Id": 7,
@@ -60,7 +66,8 @@
 		"AttackPoints": 100,
 		"DefensePoints": 75,
 		"HealthPoints": 260,
-		"AttackIds": [ 14, 15 ]
+		"Speed": 68,
+		"AttackIds": [ 14, 15, 33, 34 ]
 	},
 	{
 		"Id": 8,
@@ -69,7 +76,8 @@
 		"AttackPoints": 85,
 		"DefensePoints": 65,
 		"HealthPoints": 240,
-		"AttackIds": [ 16, 17 ]
+		"Speed": 83,
+		"AttackIds": [ 16, 17, 19, 20 ]
 	},
 	{
 		"Id": 9,
@@ -78,7 +86,8 @@
 		"AttackPoints": 75,
 		"DefensePoints": 90,
 		"HealthPoints": 220,
-		"AttackIds": [ 18, 19, 20 ]
+		"Speed": 60,
+		"AttackIds": [ 18, 19, 20, 23 ]
 	},
 	{
 		"Id": 10,
@@ -87,7 +96,8 @@
 		"AttackPoints": 85,
 		"DefensePoints": 70,
 		"HealthPoints": 235,
-		"AttackIds": [ 21, 22 ]
+		"Speed": 77,
+		"AttackIds": [ 21, 22, 10, 11 ]
 	},
 	{
 		"Id": 11,
@@ -96,7 +106,8 @@
 		"AttackPoints": 95,
 		"DefensePoints": 60,
 		"HealthPoints": 225,
-		"AttackIds": [ 23, 24 ]
+		"Speed": 88,
+		"AttackIds": [ 23, 24, 1, 2 ]
 	},
 	{
 		"Id": 12,
@@ -105,7 +116,8 @@
 		"AttackPoints": 65,
 		"DefensePoints": 75,
 		"HealthPoints": 200,
-		"AttackIds": [ 25, 26 ]
+		"Speed": 50,
+		"AttackIds": [ 25, 26, 3, 4 ]
 	},
 	{
 		"Id": 13,
@@ -114,7 +126,8 @@
 		"AttackPoints": 80,
 		"DefensePoints": 95,
 		"HealthPoints": 260,
-		"AttackIds": [ 27, 28 ]
+		"Speed": 40,
+		"AttackIds": [ 27, 28, 6, 7 ]
 	},
 	{
 		"Id": 14,
@@ -123,7 +136,8 @@
 		"AttackPoints": 70,
 		"DefensePoints": 50,
 		"HealthPoints": 190,
-		"AttackIds": [ 29, 30 ]
+		"Speed": 95,
+		"AttackIds": [ 29, 30, 8, 9 ]
 	},
 	{
 		"Id": 15,
@@ -132,7 +146,8 @@
 		"AttackPoints": 80,
 		"DefensePoints": 85,
 		"HealthPoints": 230,
-		"AttackIds": [ 31, 32 ]
+		"Speed": 58,
+		"AttackIds": [ 31, 32, 12, 13 ]
 	},
 	{
 		"Id": 16,
@@ -141,6 +156,7 @@
 		"AttackPoints": 95,
 		"DefensePoints": 70,
 		"HealthPoints": 245,
-		"AttackIds": [ 33, 34 ]
+		"Speed": 82,
+		"AttackIds": [ 33, 34, 14, 15 ]
 	}
 ]

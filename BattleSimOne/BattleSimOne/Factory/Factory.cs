@@ -14,70 +14,17 @@ namespace BattleSimOne.Factory
 		public void PrintAttributes();
 	}
 
-	public class Fighter  (int id, TypesEnum elementType, string name, int attackPoints, int defensePoints, int healthPoints, List<int> attackIds, Dictionary<int, Attack> attackLookup) : IEntity
-	{
-		public int Id { get; } = id;
-		public TypesEnum ElementType { get; set; } = elementType;
-		public string Name { get; set; } = name;
-		public int AttackPoints { get; set; } = attackPoints;
-		public int DefensePoints { get; set; } = defensePoints;
-		public int HealthPoints { get; set; } = healthPoints;
-		public List<Attack> Attacks { get; set; } = attackIds.Select(id => attackLookup.ContainsKey(id) ? attackLookup[id] : null)
-														  .Where(attack => attack != null)
-														  .ToList();
-
-		public void AttackOpponent(Fighter opponent)
-		{
-			
-		}
-
-		public void PrintAttributes()
-		{
-			Console.WriteLine($"Name: {Name}");
-			Console.WriteLine($"Type: {ElementType}");
-			Console.WriteLine($"Attack: {AttackPoints}");
-			Console.WriteLine($"Defense: {DefensePoints}");
-			Console.WriteLine($"Health: {HealthPoints}");
-			Console.WriteLine("Attack List");
-			foreach (var attack in Attacks)
-			{
-
-				attack.PrintAttributes();
-			}
-		}
-	}
-
-	public class FighterJson
-	{
-		public int Id { get; set; }
-		public TypesEnum ElementType { get; set; }
-		public string Name { get; set; }
-		public int AttackPoints { get; set; }
-		public int DefensePoints { get; set; }
-		public int HealthPoints { get; set; }
-		public List<int> AttackIds { get; set; }
-	}
-
-	public class Attack(int id, TypesEnum elementType, string name, int attackPoints) : IEntity 
-	{
-		public int Id { get; } = id;
-		public TypesEnum ElementType { get; set; } = elementType;
-		public string Name { get; set; } = name;
-		public int AttackPoints { get; set; } = attackPoints;
-
-		public void PrintAttributes()
-		{
-			Console.WriteLine($"{Name} - {AttackPoints}AP -- {ElementType} Type");
-		}
-	}
 	public abstract class Factory
 	{
 	}
 
 	public static class BattleSimulator
 	{
+        private static Random rnd = new Random();
+
 		
-		public static Dictionary<int,Attack> LoadAttacks()
+
+        public static Dictionary<int,Attack> LoadAttacks()
 		{
 			const string FilePath = @"Resources\Attacks.json";
 			string json = File.ReadAllText(FilePath);
@@ -91,7 +38,7 @@ namespace BattleSimOne.Factory
 			return attackDictionary;
 		}
 
-		public static List<Fighter> LoadFighter()
+		public static List<Fighter> LoadFighters()
 		{
 			const string FilePath = @"Resources\Fighters.json";
 			string json = File.ReadAllText(FilePath);
@@ -110,6 +57,7 @@ namespace BattleSimOne.Factory
 					fighterJson.AttackPoints,
 					fighterJson.DefensePoints,
 					fighterJson.HealthPoints,
+					fighterJson.Speed,
 					fighterJson.AttackIds,
 					attackLookup
 				)
@@ -122,6 +70,62 @@ namespace BattleSimOne.Factory
 				Console.WriteLine();
 			}
 			return fighters;
+		}
+
+		public static void AttackOpponent(Fighter Attacker, Fighter Reciever, Attack attack)
+		{
+			double damageMultiplier = 1.0;
+
+			damageMultiplier = attack.ElementType.Effectiveness(Reciever.ElementType);
+
+			double damageDealt = damageMultiplier * (((1.5 * Attacker.Level) + 20) * attack.AttackPoints * Attacker.AttackPoints / Reciever.DefensePoints) / 15;
+			Console.WriteLine($"{Attacker.Name} used {attack.Name} - {damageDealt}");
+			Reciever.HealthPoints -= (int)Double.Round(damageDealt);
+
+		}
+
+		public static Fighter SimulateFight(Fighter player1, Fighter player2)
+		{
+            Console.WriteLine();
+            Console.WriteLine($"Battle Begin");
+			Console.WriteLine($"{player1.Name} VS. {player2.Name}");
+			bool attacked = false;
+            int attackToUse = rnd.Next(0, 4);
+            if (player1.Speed <= player2.Speed)
+            {
+                AttackOpponent(player1, player2, player1.Attacks[attackToUse]);
+				attacked = true;
+            }
+            else
+            {
+                AttackOpponent(player2, player1, player2.Attacks[attackToUse]);
+            }
+
+            while (player1.HealthPoints > 0 && player2.HealthPoints > 0)
+			{
+                attackToUse = rnd.Next(0, 4);
+				if(attacked)
+				{
+                    AttackOpponent(player2, player1, player2.Attacks[attackToUse]);
+					attacked =false;
+                } else
+				{
+                    AttackOpponent(player1, player2, player1.Attacks[attackToUse]);
+                    attacked = true;
+                }
+
+            }
+
+			Fighter winner = player1.HealthPoints > player2.HealthPoints ? player1 : player2;
+
+			Console.WriteLine("***AND THE WINNER IS***");
+			Console.WriteLine($"{winner.Name}");
+			Console.WriteLine();
+
+			winner.ResetHealth();
+
+
+            return winner;
 		}
 	}
 	

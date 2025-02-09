@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BattleSimulatorAPI.Repositories.Models.DTO;
+using Microsoft.EntityFrameworkCore;
 
-namespace BattleSimulatorAPI.Repositories.Models.DTO
+namespace BattleSimulatorAPI.Repositories
 {
     public interface IFighterTypeRepository : ICrudRepository<FighterType>
     {

@@ -1,4 +1,4 @@
-﻿namespace BattleSimulatorAPI.Repositories.Models.DTO
+﻿namespace BattleSimulatorAPI.Repositories.Models.Enums
 {
     public enum FighterTypeEnum : int
     {

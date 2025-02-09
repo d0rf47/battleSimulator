@@ -15,23 +15,22 @@ namespace BattleSimulatorAPI.Repositories
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // ✅ Fighter -> ElementType (One-to-Many)
+            // Fighter -> ElementType (One-to-Many)
             modelBuilder.Entity<Fighter>()
                 .HasOne(f => f.ElementType)
                 .WithMany()
                 .HasForeignKey(f => f.ElementTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // ✅ Fighter -> FighterType (One-to-Many)
+            // Fighter -> FighterType (One-to-Many)
             modelBuilder.Entity<Fighter>()
                 .HasOne(f => f.FighterType)
                 .WithMany()
                 .HasForeignKey(f => f.FighterTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            // ✅ Fix FighterAttack (Match SQL Schema)
+            
             modelBuilder.Entity<FighterAttack>()
-                .HasKey(fa => fa.Id); // Primary Key matches SQL
+                .HasKey(fa => fa.Id);
 
             modelBuilder.Entity<FighterAttack>()
                 .HasOne(fa => fa.Fighter)
@@ -45,7 +44,7 @@ namespace BattleSimulatorAPI.Repositories
                 .HasForeignKey(fa => fa.AttackId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // ✅ Attack -> ElementType (One-to-Many)
+            // Attack -> ElementType (One-to-Many)
             modelBuilder.Entity<Attack>()
                 .HasOne(a => a.ElementType)
                 .WithMany()

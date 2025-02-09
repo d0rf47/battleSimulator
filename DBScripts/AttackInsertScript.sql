@@ -1,6 +1,6 @@
 SET IDENTITY_INSERT Attack ON;
 
-INSERT INTO Attack (Id, ElementType, Name, AttackPoints, CoolDown) VALUES
+INSERT INTO Attack (Id, ElementTypeId, Name, AttackPoints, CoolDown) VALUES
 (1, 1, 'Fire Blast', 90, 45),
 (2, 1, 'Flame Surge', 75, 38),
 (3, 2, 'Vine Whip', 30, 15),

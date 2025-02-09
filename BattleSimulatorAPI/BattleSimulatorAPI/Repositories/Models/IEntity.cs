@@ -1,8 +1,8 @@
 ﻿namespace BattleSimulatorAPI.Repositories.Models
 {
-    public interface IEntity : ICrudRepository<IEntity>
+    public interface IEntity
     {
-        int Id { get; }
+        int Id { get; set; }
         public void PrintAttributes();
     }
 }

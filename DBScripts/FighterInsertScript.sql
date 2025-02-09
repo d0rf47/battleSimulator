@@ -1,6 +1,6 @@
 SET IDENTITY_INSERT Fighter ON;
 
-INSERT INTO Fighter (Id, ElementType, FighterType, Name, AttackPoints, DefensePoints, HealthPoints, Speed, Level) VALUES
+INSERT INTO Fighter (Id, ElementTypeId, FighterTypeId, Name, AttackPoints, DefensePoints, HealthPoints, Speed, Level) VALUES
 (1, 1, 2, 'Blazing Fury', 85, 60, 250, 78, 1),
 (2, 2, 2, 'Verdant Guardian', 70, 80, 220, 65, 1),
 (3, 3, 2, 'Terra Titan', 95, 100, 280, 45, 1),

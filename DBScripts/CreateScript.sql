@@ -15,8 +15,8 @@ CREATE TABLE ElementType
 CREATE TABLE Fighter 
 (
     Id              INT PRIMARY KEY IDENTITY,
-    ElementType     INT FOREIGN KEY REFERENCES ElementType(Id),
-    FighterType     INT FOREIGN KEY REFERENCES FighterType(Id),
+    ElementTypeId   INT FOREIGN KEY REFERENCES ElementType(Id),
+    FighterTypeId   INT FOREIGN KEY REFERENCES FighterType(Id),
     Name            NVARCHAR(256),
     AttackPoints    INT,
     DefensePoints   INT,
@@ -28,8 +28,16 @@ CREATE TABLE Fighter
 CREATE TABLE Attack
 (
     Id              INT PRIMARY KEY IDENTITY,
-    ElementType     INT FOREIGN KEY REFERENCES ElementType(Id),    
+    ElementTypeId   INT FOREIGN KEY REFERENCES ElementType(Id),    
     Name            NVARCHAR(256),
     AttackPoints    INT,
     CoolDown        INT
 );
+
+CREATE TABLE FighterAttack
+(
+    Id          INT PRIMARY KEY IDENTITY,
+    FighterId   INT FOREIGN KEY REFERENCES Fighter(Id) ON DELETE CASCADE,
+    AttackId    INT FOREIGN KEY REFERENCES Attack(Id) ON DELETE CASCADE
+);
+

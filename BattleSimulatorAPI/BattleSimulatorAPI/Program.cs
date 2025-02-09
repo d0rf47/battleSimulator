@@ -1,4 +1,5 @@
 using BattleSimulatorAPI.Repositories;
+using BattleSimulatorAPI.Repositories.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -12,19 +13,55 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BattleSimDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BattleSimDbConnection")));
 
+// Generic Repository Pattern
 builder.Services.AddScoped(typeof(ICrudRepository<>), typeof(CrudRepository<>));
-//builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+// Specific Repositories
+builder.Services.AddScoped<IFighterRepository, FighterRepository>();
+builder.Services.AddScoped<IAttackRepository, AttackRepository>();
+builder.Services.AddScoped<IFighterTypeRepository, FighterTypeRepository>();
+builder.Services.AddScoped<IElementTypeRepository, ElementTypeRepository>();
+builder.Services.AddScoped<IFighterAttackRepository, FighterAttackRepository>();
 builder.Services.AddScoped<IBreezeRepository, BreezeRepository>();
+
+// CORS Configuration - Allow frontend (Angular) to communicate with API
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
+
+//Ensure database migrations are applied automatically
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<BattleSimDbContext>();
+    dbContext.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else
+{
+    // Global exception handling middleware for production
+    app.UseExceptionHandler("/error");
+}
+
+// Enable CORS
+app.UseCors("AllowAllOrigins");
 
 app.UseHttpsRedirection();
 

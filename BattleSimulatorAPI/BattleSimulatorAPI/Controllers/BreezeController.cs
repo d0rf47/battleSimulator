@@ -28,43 +28,60 @@ namespace BattleSimulatorAPI.Controllers
             var saveResult = await _breezeRepository.SaveChangesAsync(saveBundle);
             return Ok(saveResult);
         }
-        
-        [HttpGet("fighters")]
-        public async Task<IActionResult> GetFighters()
+
+        // Generic GET for all entities (e.g., /api/breeze/entity/Fighter)
+        [HttpGet("entity/{entityName}")]
+        public async Task<IActionResult> GetEntities(string entityName)
         {
-            var fighters = await _breezeRepository.GetCrudRepository<Fighter>().GetAllAsync();
-            return Ok(fighters);
+            var entities = await _breezeRepository.GetAllEntitiesAsync(entityName);
+            return Ok(entities);
         }
 
-        [HttpGet("fighters/{id}")]
-        public async Task<IActionResult> GetFighterById(int id)
+        // Generic GET by ID (e.g., /api/breeze/entity/Fighter/1)
+        [HttpGet("entity/{entityName}/{id}")]
+        public async Task<IActionResult> GetEntityById(string entityName, int id)
         {
-            var fighter = await _breezeRepository.GetCrudRepository<Fighter>().GetByIdAsync(id);
-            if (fighter == null) return NotFound();
-            return Ok(fighter);
+            var entity = await _breezeRepository.GetEntityByIdAsync(entityName, id);
+            if (entity == null) return NotFound();
+            return Ok(entity);
         }
 
-        [HttpPost("fighters")]
-        public async Task<IActionResult> AddFighter([FromBody] Fighter fighter)
-        {
-            await _breezeRepository.GetCrudRepository<Fighter>().AddAsync(fighter);
-            return CreatedAtAction(nameof(GetFighterById), new { id = fighter.Id }, fighter);
-        }
+        //[HttpGet("fighters")]
+        //public async Task<IActionResult> GetFighters()
+        //{
+        //    var fighters = await _breezeRepository.GetCrudRepository<Fighter>().GetAllAsync();
+        //    return Ok(fighters);
+        //}
 
-        [HttpPut("fighters/{id}")]
-        public async Task<IActionResult> UpdateFighter(int id, [FromBody] Fighter fighter)
-        {
-            if (id != fighter.Id) return BadRequest();
-            await _breezeRepository.GetCrudRepository<Fighter>().UpdateAsync(fighter);
-            return NoContent();
-        }
+        //[HttpGet("fighters/{id}")]
+        //public async Task<IActionResult> GetFighterById(int id)
+        //{
+        //    var fighter = await _breezeRepository.GetCrudRepository<Fighter>().GetByIdAsync(id);
+        //    if (fighter == null) return NotFound();
+        //    return Ok(fighter);
+        //}
 
-        [HttpDelete("fighters/{id}")]
-        public async Task<IActionResult> DeleteFighter(int id)
-        {
-            await _breezeRepository.GetCrudRepository<Fighter>().DeleteAsync(id);
-            return NoContent();
-        }
+        //[HttpPost("fighters")]
+        //public async Task<IActionResult> AddFighter([FromBody] Fighter fighter)
+        //{
+        //    await _breezeRepository.GetCrudRepository<Fighter>().AddAsync(fighter);
+        //    return CreatedAtAction(nameof(GetFighterById), new { id = fighter.Id }, fighter);
+        //}
+
+        //[HttpPut("fighters/{id}")]
+        //public async Task<IActionResult> UpdateFighter(int id, [FromBody] Fighter fighter)
+        //{
+        //    if (id != fighter.Id) return BadRequest();
+        //    await _breezeRepository.GetCrudRepository<Fighter>().UpdateAsync(fighter);
+        //    return NoContent();
+        //}
+
+        //[HttpDelete("fighters/{id}")]
+        //public async Task<IActionResult> DeleteFighter(int id)
+        //{
+        //    await _breezeRepository.GetCrudRepository<Fighter>().DeleteAsync(id);
+        //    return NoContent();
+        //}
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using BattleSimulatorAPI.Repositories.Models.DTO;
+﻿using BattleSimulatorAPI.Repositories;
+using BattleSimulatorAPI.Repositories.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BattleSimulatorAPI.Controllers
@@ -7,43 +8,39 @@ namespace BattleSimulatorAPI.Controllers
     [ApiController]
     public class FighterController : ControllerBase
     {
-        private readonly IFighterRepository _fighterRepository;
+        private readonly ICrudRepository<Fighter> _fighterRepository;
 
-        public FighterController(IFighterRepository fighterRepository)
+        public FighterController(ICrudRepository<Fighter> fighterRepository)
         {
             _fighterRepository = fighterRepository;
         }
 
-        // Breeze: Get all Fighters
         [HttpGet]
-        public IQueryable<Fighter> Get()
+        public async Task<IActionResult> GetAll()
         {
-            return _fighterRepository.GetAllFighters();
+            return Ok(await _fighterRepository.GetAllAsync());
         }
 
-        // Get single Fighter by ID
         [HttpGet("{id}")]
-        public async Task<ActionResult<Fighter>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var fighter = await _fighterRepository.GetFighterById(id);
-            if (fighter == null)
-                return NotFound();
-
+            var fighter = await _fighterRepository.GetByIdAsync(id);
+            if (fighter == null) return NotFound();
             return Ok(fighter);
         }
 
-        // Get Fighters by Element Type
-        [HttpGet("element/{elementType}")]
-        public async Task<ActionResult<List<Fighter>>> GetByElement(int elementType)
+        [HttpPost]
+        public async Task<IActionResult> AddFighter([FromBody] Fighter fighter)
         {
-            return Ok(await _fighterRepository.GetFightersByElement(elementType));
+            await _fighterRepository.AddAsync(fighter);
+            return CreatedAtAction(nameof(GetById), new { id = fighter.Id }, fighter);
         }
 
-        // Get Fighters by Fighter Type
-        [HttpGet("type/{fighterType}")]
-        public async Task<ActionResult<List<Fighter>>> GetByType(int fighterType)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            return Ok(await _fighterRepository.GetFightersByType(fighterType));
+            await _fighterRepository.DeleteAsync(id);
+            return NoContent();
         }
     }
 }

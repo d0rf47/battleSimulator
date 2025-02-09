@@ -1,5 +1,5 @@
-﻿using BattleSimulatorAPI.Repositories;
-using BattleSimulatorAPI.Repositories.Models.DTO;
+﻿using BattleSimulatorAPI.Repositories.Models.DTO;
+using BattleSimulatorAPI.Repositories.Models.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BattleSimulatorAPI.Controllers

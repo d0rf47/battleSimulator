@@ -3,9 +3,9 @@ using Breeze.Persistence;
 using Breeze.Persistence.EFCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BattleSimulatorAPI.Repositories
+namespace BattleSimulatorAPI.Repositories.Models.Repositories
 {
-    public interface ICrudRepository<T>  where T : class
+    public interface ICrudRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
@@ -29,7 +29,7 @@ namespace BattleSimulatorAPI.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }

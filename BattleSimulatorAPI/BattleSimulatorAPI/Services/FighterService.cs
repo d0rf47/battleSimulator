@@ -1,4 +1,5 @@
-﻿using BattleSimulatorAPI.Repositories.Models.DTO;
+﻿using BattleSimulatorAPI.DataLayer.Models.Repositories;
+using BattleSimulatorAPI.Repositories.Models.DTO;
 
 namespace BattleSimulatorAPI.Services
 {
@@ -13,12 +14,12 @@ namespace BattleSimulatorAPI.Services
 
         public async Task<IEnumerable<Fighter>> GetAllFighters()
         {
-            return await _fighterRepository.GetAllWithDetailsAsync();
+            return await _fighterRepository.GetAllAsync();
         }
 
         public async Task<Fighter> GetFighterById(int id)
         {
-            return await _fighterRepository.GetByIdWithDetailsAsync(id);
+            return await _fighterRepository.GetByIdAsync(id);
         }
     }
 

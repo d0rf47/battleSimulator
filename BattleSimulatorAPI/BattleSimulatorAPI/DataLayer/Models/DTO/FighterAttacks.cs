@@ -13,9 +13,9 @@ namespace BattleSimulatorAPI.Repositories.Models.DTO
         public int AttackId { get; set; } // Foreign Key
         public Attack Attack { get; set; } // Navigation Property
 
-        void IEntity.PrintAttributes()
+        public void PrintAttributes()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{Attack.Name}:  {Attack.AttackPoints} AP - Cooldown: {Attack.CoolDown} seconds, Type {Attack.ElementType.TypeName}");
         }
     }
 

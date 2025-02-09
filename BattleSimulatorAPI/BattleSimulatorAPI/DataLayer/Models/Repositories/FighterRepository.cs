@@ -1,13 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BattleSimulatorAPI.Repositories;
+using BattleSimulatorAPI.Repositories.Models.DTO;
+using BattleSimulatorAPI.Repositories.Models.Repositories;
+using Microsoft.EntityFrameworkCore;
 
-namespace BattleSimulatorAPI.Repositories.Models.DTO
+namespace BattleSimulatorAPI.DataLayer.Models.Repositories
 {
     public interface IFighterRepository : ICrudRepository<Fighter>
     {
         IQueryable<Fighter> GetAllFighters();
-        Task<IEnumerable<Fighter>> GetAllWithDetailsAsync();
-        Task<Fighter> GetByIdWithDetailsAsync(int id);
-        Task<Fighter> GetFighterById(int id);
+        Task<IEnumerable<Fighter>> GetAllAsync();
+        Task<Fighter> GetByIdAsync(int id);        
         Task<object?> GetFightersByElement(int elementType);
         Task<object?> GetFightersByType(int fighterType);
     }
@@ -16,7 +18,7 @@ namespace BattleSimulatorAPI.Repositories.Models.DTO
     {
         public FighterRepository(BattleSimDbContext context) : base(context) { }
 
-        public async Task<IEnumerable<Fighter>> GetAllWithDetailsAsync()
+        public async Task<IEnumerable<Fighter>> GetAllAsync()
         {
             return await _dbSet
                 .Include(f => f.ElementType)
@@ -24,11 +26,14 @@ namespace BattleSimulatorAPI.Repositories.Models.DTO
                 .ToListAsync();
         }
 
-        public async Task<Fighter> GetByIdWithDetailsAsync(int id)
+        public async Task<Fighter> GetByIdAsync(int id)
         {
             return await _dbSet
-                .Include(f => f.ElementType)
-                .Include(f => f.FighterType)
+                .Include(f => f.ElementType)  // Load ElementType
+                .Include(f => f.FighterType)  // Load FighterType
+                .Include(f => f.FighterAttacks) // Load FighterAttacks
+                    .ThenInclude(fa => fa.Attack) // Load the Attack details inside FighterAttacks
+                        .ThenInclude(a => a.ElementType) // Load ElementType for Attack
                 .FirstOrDefaultAsync(f => f.Id == id);
         }
 
@@ -37,12 +42,7 @@ namespace BattleSimulatorAPI.Repositories.Models.DTO
             return _dbSet
                 .Include(f => f.ElementType)
                 .Include(f => f.FighterType);
-                
-        }
 
-        Task<Fighter> IFighterRepository.GetFighterById(int id)
-        {
-            throw new NotImplementedException();
         }
 
         Task<object?> IFighterRepository.GetFightersByElement(int elementType)

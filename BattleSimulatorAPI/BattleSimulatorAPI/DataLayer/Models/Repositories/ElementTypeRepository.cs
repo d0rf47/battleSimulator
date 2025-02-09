@@ -1,7 +1,7 @@
 ﻿using BattleSimulatorAPI.Repositories.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 
-namespace BattleSimulatorAPI.Repositories
+namespace BattleSimulatorAPI.Repositories.Models.Repositories
 {
     public interface IElementTypeRepository : ICrudRepository<ElementType>
     {

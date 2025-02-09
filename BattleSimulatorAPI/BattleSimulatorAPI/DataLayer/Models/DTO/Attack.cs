@@ -18,7 +18,7 @@ namespace BattleSimulatorAPI.Repositories.Models.DTO
 
         public void PrintAttributes()
         {
-            Console.WriteLine($"{Name} - {AttackPoints}AP -- {ElementType} Type");
+            Console.WriteLine($"{Name} - {AttackPoints}AP -- {ElementType.TypeName} Type, {CoolDown} seconds cooldown");
         }
     }
 }

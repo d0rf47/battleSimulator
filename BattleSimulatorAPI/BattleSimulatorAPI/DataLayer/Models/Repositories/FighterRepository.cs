@@ -1,13 +1,11 @@
-﻿using BattleSimulatorAPI.Repositories;
-using BattleSimulatorAPI.Repositories.Models.DTO;
+﻿using BattleSimulatorAPI.Repositories.Models.DTO;
 using BattleSimulatorAPI.Repositories.Models.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace BattleSimulatorAPI.DataLayer.Models.Repositories
 {
     public interface IFighterRepository : ICrudRepository<Fighter>
-    {
-        IQueryable<Fighter> GetAllFighters();
+    {        
         Task<IEnumerable<Fighter>> GetAllAsync();
         Task<Fighter> GetByIdAsync(int id);        
         Task<object?> GetFightersByElement(int elementType);
@@ -21,8 +19,11 @@ namespace BattleSimulatorAPI.DataLayer.Models.Repositories
         public async Task<IEnumerable<Fighter>> GetAllAsync()
         {
             return await _dbSet
-                .Include(f => f.ElementType)
-                .Include(f => f.FighterType)
+                .Include(f => f.ElementType)  // Load ElementType
+                .Include(f => f.FighterType)  // Load FighterType
+                .Include(f => f.FighterAttacks) // Load FighterAttacks
+                    .ThenInclude(fa => fa.Attack) // Load the Attack details inside FighterAttacks
+                        .ThenInclude(a => a.ElementType) // 
                 .ToListAsync();
         }
 
@@ -35,14 +36,6 @@ namespace BattleSimulatorAPI.DataLayer.Models.Repositories
                     .ThenInclude(fa => fa.Attack) // Load the Attack details inside FighterAttacks
                         .ThenInclude(a => a.ElementType) // Load ElementType for Attack
                 .FirstOrDefaultAsync(f => f.Id == id);
-        }
-
-        IQueryable<Fighter> IFighterRepository.GetAllFighters()
-        {
-            return _dbSet
-                .Include(f => f.ElementType)
-                .Include(f => f.FighterType);
-
         }
 
         Task<object?> IFighterRepository.GetFightersByElement(int elementType)

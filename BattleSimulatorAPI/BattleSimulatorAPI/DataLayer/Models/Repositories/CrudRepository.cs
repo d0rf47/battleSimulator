@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Breeze.Persistence;
-using Breeze.Persistence.EFCore;
-using Microsoft.EntityFrameworkCore;
+using BattleSimulatorAPI.DataLayer;
 
 namespace BattleSimulatorAPI.Repositories.Models.Repositories
 {
@@ -29,7 +27,7 @@ namespace BattleSimulatorAPI.Repositories.Models.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public virtual async Task<T> GetByIdAsync(int id)
+        public  async Task<T> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }

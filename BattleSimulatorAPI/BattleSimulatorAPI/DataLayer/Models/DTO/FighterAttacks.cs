@@ -3,10 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BattleSimulatorAPI.Repositories.Models.DTO
 {
+    [Table("FighterAttack")]
     public class FighterAttack : IEntity
     {
-        public int Id { get; set; } // Add Id to match SQL schema
-
+        [Key]
+        public int Id { get; set; }
         public int FighterId { get; set; } // Foreign Key
         public Fighter Fighter { get; set; } // Navigation Property
 

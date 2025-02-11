@@ -1,5 +1,4 @@
-﻿using BattleSimulatorAPI.Repositories.Models.DTO;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using BattleSimulatorAPI.Repositories.Models.Repositories;
 

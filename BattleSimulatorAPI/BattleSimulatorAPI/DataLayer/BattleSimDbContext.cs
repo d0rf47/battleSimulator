@@ -1,7 +1,7 @@
 ﻿using BattleSimulatorAPI.Repositories.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 
-namespace BattleSimulatorAPI.Repositories
+namespace BattleSimulatorAPI.DataLayer
 {
     public class BattleSimDbContext : DbContext
     {

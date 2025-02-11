@@ -1,5 +1,6 @@
 ﻿using BattleSimulatorAPI.Repositories.Models.DTO;
 using Microsoft.EntityFrameworkCore;
+using BattleSimulatorAPI.DataLayer;
 
 namespace BattleSimulatorAPI.Repositories.Models.Repositories
 {

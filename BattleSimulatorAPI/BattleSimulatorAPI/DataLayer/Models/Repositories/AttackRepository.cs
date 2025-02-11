@@ -1,5 +1,7 @@
-﻿using BattleSimulatorAPI.Repositories.Models.DTO;
+﻿using BattleSimulatorAPI.DataLayer;
+using BattleSimulatorAPI.Repositories.Models.DTO;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace BattleSimulatorAPI.Repositories.Models.Repositories
 {
@@ -22,7 +24,7 @@ namespace BattleSimulatorAPI.Repositories.Models.Repositories
         public async Task<Attack> GetByIdAsync(int id)
         {
             return await _dbSet
-                .Include(f => f.ElementType)  // Load ElementType                
+                .Include(f => f.ElementType)
                 .FirstOrDefaultAsync(f => f.Id == id);
         }
     }

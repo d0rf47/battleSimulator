@@ -1,9 +1,8 @@
-
-<p-menubar [model]="items" class="w-full">
+<p-menubar [model]="items">
     <ng-template #start>
         <i class="pi pi-home" style="color: slateblue"></i>
     </ng-template>
-    <ng-template #item let-item let-root="root">
+    <ng-template #item let-item let-root="root" class="w-100">
         <a pRipple class="flex items-center p-menubar-item-link">
             <span>{{ item.label }}</span>
             <span *ngIf="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>

@@ -1,6 +1,7 @@
 :root {
     --p-menubar-gap: 1rem;
 }
+
 .p-menubar {
     background-color: #1e1e2d;
     
@@ -14,12 +15,12 @@
 }
  
 
-$colors: #6205ed, #F5A503, #E9F1DF, #56D9CD, #3AA1BF;
+$colors: #6205ed, #f57803, #1807fa, #e70c93, #ad00fd;
 $max: length($colors);
 $dash: 70;
 $dash-gap: 10;
 $dash-space: $dash * ($max - 1) + $dash-gap * $max;
-$time: 6s;
+$time: 5s;
 $time-step: $time/$max;
 
 .text {
@@ -61,7 +62,13 @@ svg {
     background-size: .2em 100%;
     font: 5em Silkscreen, Impact;
     text-transform: uppercase;
-    margin: 0;
-    // transform: scale(0.5); /* Shrinks to 50% */
+    margin: 0;    
     transform-origin: center;
+  }
+
+  p-menubarsub {
+    width: 100%;
+  }
+  .p-menubar-item:last-of-type {
+    margin-left: auto;
   }

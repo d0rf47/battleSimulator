@@ -1,33 +1,35 @@
-<p-menubar [model]="items">
-    <ng-template #start>
-        <i class="pi pi-home" style="color: slateblue"></i>
-    </ng-template>
-    <ng-template #item let-item let-root="root" class="w-100">
-        <a pRipple class="flex items-center p-menubar-item-link">
-            <span>{{ item.label }}</span>
-            <span *ngIf="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
-            <i *ngIf="item.items" [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>
-        </a>
-    </ng-template>
-    <ng-template #end>
-        <div class="flex items-center gap-2">
-            
-        </div>
-    </ng-template>
-</p-menubar>
-
-<div class="flex justify-content-center w-100">
-    <svg viewBox="0 0 1200 200">
-        <!-- Symbol-->
-        <symbol id="s-text">
-          <text text-anchor="middle" x="50%" y="50%">D0rf Battle Simulator</text>
-        </symbol>
-        <!-- Duplicate symbols-->
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-        <use class="text" xlink:href="#s-text"></use>
-    </svg>
+<div>
+    <p-menubar [model]="items">
+        <ng-template #start>
+            <i class="pi pi-home" style="color: slateblue"></i>
+        </ng-template>
+        <ng-template #item let-item let-root="root" class="w-100">
+            <a pRipple class="flex items-center p-menubar-item-link">
+                <span>{{ item.label }}</span>
+                <span *ngIf="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+                <i *ngIf="item.items" [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>
+            </a>
+        </ng-template>
+        <ng-template #end>
+            <div class="flex items-center gap-2">
+                
+            </div>
+        </ng-template>
+    </p-menubar>
     
+    <div class="flex justify-content-center w-100" style="min-height: 250px;">
+        <svg viewBox="0 0 1200 200">
+            <!-- Symbol-->
+            <symbol id="s-text">
+              <text text-anchor="middle" x="50%" y="50%">D0rf Battle Simulator</text>
+            </symbol>
+            <!-- Duplicate symbols-->
+            <use class="text" xlink:href="#s-text"></use>
+            <use class="text" xlink:href="#s-text"></use>
+            <use class="text" xlink:href="#s-text"></use>
+            <use class="text" xlink:href="#s-text"></use>
+            <use class="text" xlink:href="#s-text"></use>
+        </svg>
+        
+    </div>
 </div>

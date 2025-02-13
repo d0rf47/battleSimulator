@@ -64,15 +64,13 @@
   main {
     overflow: hidden;
   }
-  main, .contentWrapper {
+  main {
     width: 100%;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
+    display: flex;    
     flex-direction: column;
     align-items: center;    
-    box-sizing: inherit;
-    position: relative;
+    box-sizing: inherit;    
     justify-content: space-between;
     padding: 0;
     margin: 0;
@@ -80,6 +78,12 @@
 
   .contentWrapper{
     padding:0 2rem;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    flex: 1 1 auto;
+
   }
 
   /* utils */

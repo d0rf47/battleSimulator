@@ -7,13 +7,22 @@
     --vivid-pink: oklch(69.02% 0.277 332.77);
     --hot-red: oklch(61.42% 0.238 15.34);
     --orange-red: oklch(63.32% 0.24 31.68);
-
     --gray-900: oklch(19.37% 0.006 300.98);
     --gray-700: oklch(36.98% 0.014 302.71);
     --gray-400: oklch(70.9% 0.015 304.04);
     --bs-body-bg: #030712 !important;
     --bs-dark: #000421 !important;
     --p-menubar-background: --bs-dark !important;
+    --deep-space-100: oklab(13% -0.008 -0.065);
+    --deep-space-200: oklab(16.3% 0.028 -0.061);
+    --deep-space-300: oklab(19.3% 0.052 -0.056);
+    --deep-space-400: oklab(23.5% 0.079 -0.046);
+    --deep-space-500: oklab(30.4% 0.115 -0.033);
+    $deep-space-100: #000421;
+    $deep-space-200: #110527;
+    $deep-space-300: #20062c;
+    $deep-space-400: #340732;
+    $deep-space-500: #54083d;
 
     --red-to-pink-to-purple-vertical-gradient: linear-gradient(
       180deg,

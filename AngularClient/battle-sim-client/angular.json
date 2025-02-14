@@ -18,6 +18,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules"
+              ]
+            },
             "outputPath": "dist/battle-sim-client",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -33,7 +38,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "src/bootstrapOverride.scss"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -97,7 +102,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "src/bootstrapOverride.scss"
             ],
             "scripts": [
                "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"

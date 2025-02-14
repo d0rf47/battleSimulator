@@ -1,0 +1,100 @@
+//Color Overrides
+$primary: #54083d;
+$secondary: #20062c;
+$warning: #f57803;
+$dark: #000421;
+$info: #110527;
+
+/*Variable overrides need to be placed ABOVE imports*/
+/*
+    Import Required Bootstrap contents for use
+    This list is subject to changes as our needs do
+*/
+/*
+    First Imports Required
+    Order Is required HERE!
+    DO NOT TOUCH THE FIRST 5 IMPORTS
+*/
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+/*
+    Insert Customization Here
+
+*/
+
+/*
+    custom theme colors
+    to add additional colors to 
+    theme vars add them in custom-theme-colors;
+*/
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+$custom-theme-colors: ( 
+   "darkPurple": #6205ed,
+   "violet": #ad00fd,
+   "pinky": #e70c93,
+   "neonPink": #ff00c8,
+   "neonYellow": #fffb00,
+   "neonGreen": #48ff00,
+   "darkBlue":#002bff,
+   "lightPurple": #7a00ff,
+   "spicy": #ff0000
+);
+//combine color themese
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+/* Require BS includes do not remove the 3 below */
+@import "bootstrap/scss/maps";
+@import 'bootstrap/scss/root';
+@import "bootstrap/scss/utilities";
+
+/*
+    Included Bootstrap Lib Components Go Below
+*/
+@import 'bootstrap/scss/_utilities';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/_accordion.scss';
+@import 'bootstrap/scss/breadcrumb';
+@import 'bootstrap/scss/button-group';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/card';
+@import 'bootstrap/scss/carousel';
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/helpers';
+@import 'bootstrap/scss/images';
+@import 'bootstrap/scss/list-group';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+@import 'bootstrap/scss/placeholders';
+@import 'bootstrap/scss/_pagination';
+@import 'bootstrap/scss/popover';
+@import 'bootstrap/scss/tables';
+@import 'bootstrap/scss/transitions';
+@import 'bootstrap/scss/bootstrap-grid';
+@import 'bootstrap/scss/bootstrap-utilities';
+@import 'bootstrap/scss/modal';
+@import "bootstrap/scss/_tooltip.scss";
+@import "bootstrap/scss/_toasts.scss";
+
+//adds responsive util to text classes 
+$utilities: map-merge( $utilities, ( "white-space": map-merge( map-get($utilities, "white-space"), ( responsive: true ) ), ) );
+
+//Last Import required for map customization 
+@import "bootstrap/scss/utilities/api";
+

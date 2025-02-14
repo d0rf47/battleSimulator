@@ -23,6 +23,8 @@
     "@angular/ssr": "^19.1.6",
     "@primeng/themes": "^19.0.6",
     "bootstrap": "^5.3.3",
+    "breeze-bridge2-angular": "^1.1.0",
+    "breeze-client": "^2.1.5-mjs",
     "express": "^4.18.2",
     "primeicons": "^7.0.0",
     "primeng": "^19.0.6",

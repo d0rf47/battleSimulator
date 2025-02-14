@@ -13,16 +13,6 @@
     --bs-body-bg: #030712 !important;
     --bs-dark: #000421 !important;
     --p-menubar-background: --bs-dark !important;
-    --deep-space-100: oklab(13% -0.008 -0.065);
-    --deep-space-200: oklab(16.3% 0.028 -0.061);
-    --deep-space-300: oklab(19.3% 0.052 -0.056);
-    --deep-space-400: oklab(23.5% 0.079 -0.046);
-    --deep-space-500: oklab(30.4% 0.115 -0.033);
-    $deep-space-100: #000421;
-    $deep-space-200: #110527;
-    $deep-space-300: #20062c;
-    $deep-space-400: #340732;
-    $deep-space-500: #54083d;
 
     --red-to-pink-to-purple-vertical-gradient: linear-gradient(
       180deg,
@@ -40,7 +30,7 @@
     --size: 20px;
     --pill-accent: var(--bright-blue);
     --bs-body-font-family: "Press Start 2P" !important;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    font-family: var(--bs-body-font-family), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol";
     box-sizing: border-box;
@@ -53,7 +43,7 @@
   html, html * {
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABFklEQVRYR9WXURLDIAhE6/0PbSdOtUpcd1Gnpv1KGpTHBpCE1/cXq+vrMph7dGvXZTtpfW10DCA5jrH1H0Jhs5E0hnZdCR+vb5S8Nn8mQCeS9BdSalYJqMBjAGzq59xAESN7VFVUgV8AZB/dZBR7QTFDCqGquvUBVVoEtgIwpQRzmANSFHgWQKExHdIrPeuMvQNDarXe6nC/AutgV3JW+6bgqQLeV8FekRtgV+ToDKEKnACYKsfZjjkam7a0ZpYTytwmgainpC3HvwBocgKOxqRjehoR9DFKNFYtOwCGYCszobeCbl26N6yyQ6g8X/Wex/rBPsNEV6qAMaJPMynIHQCoSqS9JSMmwef51LflTgCRszU7DvAGiV6mHWfsaVUAAAAASUVORK5CYII=),auto !important;
   }
-  h1 {
+  .mainHeader {
     font-size: 3.125rem;
     color: var(--french-violet);
     font-weight: 500;

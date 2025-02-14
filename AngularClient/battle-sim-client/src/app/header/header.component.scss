@@ -3,19 +3,19 @@
 }
 
 .p-menubar {
-    background-color: #1e1e2d;
-    
+    background-color: #1e1e2d !important;    
 }
 
 .title {
     font-size: 72px;
-  background: var(--red-to-pink-to-purple-horizontal-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: var(--red-to-pink-to-purple-horizontal-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
  
 
-$colors: #6205ed, #f57803, #1807fa, #e70c93, #ad00fd;
+//$colors: #6205ed, #f57803, #1807fa, #e70c93, #ad00fd;
+$colors: var(--orange-red), var(--electric-violet), var(--french-violet), var(--bs-warning), var(--bs-pinky);
 $max: length($colors);
 $dash: 70;
 $dash-gap: 10;
@@ -47,20 +47,18 @@ $time-step: $time/$max;
     stroke-dashoffset: -($dash + $dash-gap) * $max;
   }
 }
-
 @keyframes stroke {
   100% {
     stroke-dashoffset: -($dash + $dash-gap) * $max;
   }
 }
-
   
-svg {
+.headerSvg {
     position: absolute;
     width: 100%;
     height: 150px;
     background-size: .2em 100%;
-    font: 5em Silkscreen, Impact;
+    font: 4em var(--bs-body-font-family);
     text-transform: uppercase;
     margin: 0;    
     transform-origin: center;

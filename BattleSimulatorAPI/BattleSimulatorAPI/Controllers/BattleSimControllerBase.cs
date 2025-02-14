@@ -1,4 +1,5 @@
 ﻿using BattleSimulatorAPI.DataLayer.Models.ViewModels;
+using BattleSimulatorAPI.Factory;
 using BattleSimulatorAPI.Repositories.Models.Repositories;
 
 namespace BattleSimulatorAPI.Controllers
@@ -16,8 +17,14 @@ namespace BattleSimulatorAPI.Controllers
 
         public TRepository EntityCrudRepo
         {
-            get => 
-                _entityCrudRep ?? ()
+            get =>
+                _entityCrudRepo ?? (_entityCrudRepo =
+                RepositoryFactory.GetRepository<TRepository, TRepositoryModel>());
+
+            set => _entityCrudRepo = value;
         }
+        #endregion
+
+
     }
 }

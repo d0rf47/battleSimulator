@@ -1,5 +1,8 @@
 <div class="container">
     <div class="d-flex">
-        <button class="btn btn-start">Press to Start</button>
+        <button 
+            *ngIf="!isModeStarted"
+            (click)="handleStartClick($event)"
+            class="btn btn-start">Press to Start</button>
     </div>
 </div>

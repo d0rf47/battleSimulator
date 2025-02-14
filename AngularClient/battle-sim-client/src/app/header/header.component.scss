@@ -6,15 +6,22 @@
     background-color: #1e1e2d !important;    
 }
 
+p-menubarsub {
+    width: 100%;
+}
+
+.p-menubar-item:last-of-type {
+    margin-left: auto;
+}
+
 .title {
     font-size: 72px;
     background: var(--red-to-pink-to-purple-horizontal-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
- 
 
-//$colors: #6205ed, #f57803, #1807fa, #e70c93, #ad00fd;
+//SVG Animation
 $colors: var(--orange-red), var(--electric-violet), var(--french-violet), var(--bs-warning), var(--bs-pinky);
 $max: length($colors);
 $dash: 70;
@@ -62,11 +69,4 @@ $time-step: $time/$max;
     text-transform: uppercase;
     margin: 0;    
     transform-origin: center;
-  }
-
-  p-menubarsub {
-    width: 100%;
-  }
-  .p-menubar-item:last-of-type {
-    margin-left: auto;
-  }
+}

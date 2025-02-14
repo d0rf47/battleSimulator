@@ -7,8 +7,7 @@ import { MenuItem } from 'primeng/api';
   selector: 'app-header',
   imports: [MenubarModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./header.component.scss']  
 })
 export class HeaderComponent {
   items: MenuItem[] = [];

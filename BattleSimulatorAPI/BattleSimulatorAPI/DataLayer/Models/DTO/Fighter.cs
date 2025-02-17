@@ -1,11 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Csla;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BattleSimulatorAPI.Repositories.Models.DTO
 {
-    [Table("Fighter")]
-    public class Fighter : IEntity
+    
+    public interface IFighter : IEntity<int>
     {
+    }
+
+    public interface IFighterInfo : IReadOnlyBase
+	{
+        
+    }
+
+    [Table("Fighter")]
+    public class Fighter
+	{
         [Key]
         public int Id { get; set; }
         public int ElementTypeId { get; set; }

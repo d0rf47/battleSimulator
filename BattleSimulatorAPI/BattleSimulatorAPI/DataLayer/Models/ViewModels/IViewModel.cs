@@ -8,7 +8,7 @@ namespace BattleSimulatorAPI.DataLayer.Models.ViewModels
 		bool Disabled { get; set; }
         IEnumerable<ValidationResult> ModelIsValid();
         EntityModel GetEntityModel();
-        List<IViewModel> AssociatedEntites();
+        List<IViewModel> AssociatedEntities();
 
     }
 

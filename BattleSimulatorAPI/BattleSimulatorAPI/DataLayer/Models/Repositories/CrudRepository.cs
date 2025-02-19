@@ -46,6 +46,14 @@ namespace BattleSimulatorAPI.Repositories.Models.Repositories
 			int maxRecordsToReturn = -1);
 	}
 
+
+	/// <summary>
+	/// Base Repo Class
+	/// </summary>
+	/// <typeparam name="TBusiness"></typeparam>
+	/// <typeparam name="TInfoBusiness"></typeparam>
+	/// <typeparam name="TModel"></typeparam>
+	/// <typeparam name="TModelInterface"></typeparam>
     public abstract partial class CrudRepository<TBusiness, TInfoBusiness, TModel, TModelInterface>
 		where TBusiness : IBusinessBase
 		where TInfoBusiness : IReadOnlyBase
@@ -114,6 +122,37 @@ namespace BattleSimulatorAPI.Repositories.Models.Repositories
 		{
 			var id = queryOptions.GetIdValueForContracts<TBusiness>();
 			return GetEntityById(id);
+		}
+		protected DbsResult<IEnumerable<TModelInterface>> GetInfoListPaged<TInfoPagedBusiness>(
+			ODataQueryOptions<DynamicPoco> queryOptions, bool showAll, int maxRecordsToReturn = -1)
+		{
+			var query = queryOptions.ToEntityPagedQuery(typeof(TModel), showAll, maxRecordsToReturn);
+
+			if (showAll)
+			{
+				query.PrefetchProperties = PrefetchPropertyList.Hierarchy;
+			}
+
+			UpdateQueryForInfoPaged(query);
+
+			var cslaResult = (dynamic)ObjectFactory.Get<TInfoPagedBusiness>(query);
+			var entityModel = GetModelInstance().GetEntityModel();
+			var vmList = new List<TModel>();
+			foreach (var cslaModel in (IList)cslaResult.List)
+			{
+				var vm = GetModelInstance();
+				CopyFromCslaObject(cslaModel, vm, entityModel);
+				vmList.Add(vm);
+			}
+
+			return new NxResult<IEnumerable<TModelInterface>>
+			{
+				InlineCount =
+					maxRecordsToReturn == -1
+						? cslaResult.TotalRows
+						: Math.Max(maxRecordsToReturn, cslaResult.TotalRows),
+				Result = vmList
+			};
 		}
 		#endregion
 

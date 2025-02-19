@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.OData.Query;
 using System.Xml.Linq;
 using BattleSimulatorAPI.DataLayer.Models.Enums;
+using System.Net.Http.Formatting;
 
 namespace BattleSimulatorAPI.Extensions
 {
@@ -309,6 +310,52 @@ namespace BattleSimulatorAPI.Extensions
 				default:
 					throw new ArgumentException($"Unsuppored abstract query operatory type: {operatorString}");
 			}
+		}
+
+		public static EntityPagedQuery ToEntityPagedQuery(this ODataQueryOptions<DynamicPoco> queryOptions, Type entityType, bool showAll = false, int maxRecordsToReturn = -1)
+		{
+			var abstractQuery = ConvertToAbstractQuery(queryOptions, entityType);
+
+			var cslaQuery = abstractQuery.GetCslaPagedQuery();
+
+			return cslaQuery.SetProperties(queryOptions, maxRecordsToReturn);
+		}
+
+		private static AbstractQuery ConvertToAbstractQuery(ODataQueryOptions<DynamicPoco> queryOptions, Type entityType, string entityName = null, string moduleName = null)
+		{
+			return CreateDynamicQueryOptions(queryOptions, entityType).ToAbstractQuery();
+		}
+
+		private static ODataQueryOptions CreateDynamicQueryOptions(ODataQueryOptions<DynamicPoco> originalQuery, Type entityType)
+		{
+			var entityClrType = entityType;
+			var builder = new ODataConventionModelBuilder(GlobalConfiguration.Configuration, true);
+			var entityTypeConfiguration = builder.AddEntity(entityClrType);
+
+			builder.AddEntitySet(entityClrType.Name, entityTypeConfiguration);
+
+			var edmModel = builder.GetEdmModel();
+			var queryContext = new ODataQueryContext(edmModel, entityClrType);
+
+			return new ODataQueryOptions(queryContext, originalQuery.Request);
+		}
+
+		private static EntityPagedQuery SetProperties(this EntityPagedQuery pagedQuery, ODataQueryOptions queryOptions, int maxRecordsToReturn)
+		{
+			var formData = new FormDataCollection(queryOptions.Request.RequestUri);
+
+			pagedQuery.PrefetchProperties = PrefetchPropertyList.None;
+			pagedQuery.ShowDisabled = GenericBreezeMethods.GetValueFromFormData<bool?>(formData, "showDisabled", null);
+			pagedQuery.ShowSystemRecord = GenericBreezeMethods.GetValueFromFormData<bool?>(formData, "showSystemRecord", null);
+			pagedQuery.RetryCount = GenericBreezeMethods.GetValueFromFormData(formData, "retryCount", 0);
+
+			if (maxRecordsToReturn > -1)
+			{
+				pagedQuery.RowsPerPage = maxRecordsToReturn;
+				pagedQuery.PageNumber = 1;
+			}
+
+			return pagedQuery;
 		}
 
 		private static string ToString(OrderByQueryOption orderByQuery)
